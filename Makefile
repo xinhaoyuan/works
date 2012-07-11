@@ -50,7 +50,14 @@ ${T_OBJ}/__ts_%: force
 stat: all
 	${V}./loc.sh
 
-test-waff: waff
+waff-test: waff
 	${V}cd ../waff/cgi-bin;QUERY_STRING="player=yxh" ./waff.pl 
+
+cwm-test: cwm
+	-pkill Xnest
+	Xnest :1 -ac &
+	sleep 1; DISPLAY=":1" xev &
+	sleep 1; DISPLAY=":1" urxvt &
+	sleep 1; DISPLAY=":1" obj/cwm
 
 endif
