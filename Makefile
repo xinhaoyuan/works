@@ -49,4 +49,13 @@ cwm-test: cwm
 	sleep 1; DISPLAY=":1" urxvt &
 	sleep 1; DISPLAY=":1" valgrind obj/cwm
 
+cox-run: cox-bootimage
+	${V}./cox/run console
+
+cox-run-gdb: cox-bootimage
+	${V}./cox/run gdb
+
+cox-run-3w: cox-bootimage
+	${V}./cox/run 3w
+
 endif
