@@ -24,12 +24,12 @@ ${T_OBJ}/__ts:
 
 # Process the project layouts {{{
 
-DESC_FILE   := DESC
+DESC_FILES  := desc/*
 LAYOUT_FILE := ${T_OBJ}/layout.mk
 
 ${LAYOUT_FILE}: ${T_OBJ}/__ts ${DESC_FILE}
 	@${PRINT} MAKING layout file
-	${V}${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ < ${DESC_FILE} > ${LAYOUT_FILE}
+	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
 
 -include ${LAYOUT_FILE}
 

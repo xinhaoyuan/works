@@ -8,7 +8,7 @@ declare -A DEPS
 declare -A PATHS
 
 while read line; do
-    if [[ "$line" =~ [^:\"]+:[^:\"]+:.* ]]; then
+    if [[ ! "$line" =~ ^# ]] && [[ "$line" =~ [^:\"]+:[^:\"]+:.* ]]; then
         eval $(echo $line | ${SED} -n -e "s/\([^:\"][^:\"]*\):\([^:\"][^:\"]*\):\(.*\)/NAME=\"\1\";PATH=\"\2\";DEP=\"\3\"/p")
         PATH=${PATH%/}
         if [ -d "$PATH" -a -r "${PATH}/Makefile" ] ; then
@@ -25,7 +25,7 @@ for PRJ in ${PRJS}; do
     echo "OBJ_${PRJ}  := ${PREFIX}${PRJ}"
     echo "DEP_${PRJ}  := ${DEPPREFIX}${PRJ}"
     REALPATH=$( cd ${PATHS[${PRJ}]}; pwd )
-    echo "export PATH_${PRJ} := \"${REALPATH}\""
+    echo "export PATH_${PRJ} := ${REALPATH}"
     echo ".PHONY: ${PRJ}"
     echo "${PRJ}: \${OBJ_${PRJ}}"
 done
