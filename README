@@ -1,0 +1,5 @@
+This is a building system based on some GNU utils.
+
+Put your projects description files into ``desc/'', with the format of desc.sample.
+
+Use ``make [project]'' in the base directory. Files generated would be put into ``obj/''.

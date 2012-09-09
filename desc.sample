@@ -1,0 +1,4 @@
+# [project name]:[directory]:[dependencies]
+see:prj/see:
+muge:prj/muge:see
+
