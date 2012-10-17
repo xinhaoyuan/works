@@ -59,6 +59,6 @@ cox-run-3w: cox-bootimage
 	${V}./cox/run 3w
 
 weblet-install: weblet
-	${V}cp ${T_OBJ}/weblet-res.tgz ${T_OBJ}/weblet-bin ${T_OBJ}/weblet ~/bin
+	${V}cp -r ${T_OBJ}/weblet-local ${T_OBJ}/weblet ~/bin
 
 endif
