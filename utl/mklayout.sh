@@ -42,3 +42,9 @@ for PRJ in ${PRJS}; do
     echo $'\t'"@test '(' -e \$@ ')' -a '(' '!' '(' \${DEP_${PRJ}} -nt \$@ ')' ')' || \\"
     echo $'\t'"( \${PRINT} \"MAKING ${PRJ}:\"; PRJ=${PRJ} \${MAKE} -C \${PATH_${PRJ}} all && touch \$@ )"
 done
+
+for PRJ in ${PRJS}; do
+    echo "PRJ := ${PRJ}"
+    echo "-include \${PATH_${PRJ}}/action.mk"
+    echo "PRJ :="
+done
