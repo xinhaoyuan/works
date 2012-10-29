@@ -1,4 +1,4 @@
-.PHONY: clean force layout
+.PHONY: clean force default layout
 
 export V        ?= @
 export T_BASE   ?= ${PWD}
@@ -15,6 +15,8 @@ clean:
 	-${V}${RM} -rf ${T_OBJ}
 
 else
+
+default:
 
 ${T_OBJ}/__ts:
 	-@mkdir -p ${T_OBJ}
