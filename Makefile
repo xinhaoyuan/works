@@ -1,4 +1,4 @@
-.PHONY: clean force all
+.PHONY: clean force layout
 
 export V        ?= @
 export T_BASE   ?= ${PWD}
@@ -16,8 +16,6 @@ clean:
 
 else
 
-all: ${TARGET}
-
 ${T_OBJ}/__ts:
 	-@mkdir -p ${T_OBJ}
 	@touch $@
@@ -28,6 +26,10 @@ DESC_FILES  := desc/*
 LAYOUT_FILE := ${T_OBJ}/layout.mk
 
 ${LAYOUT_FILE}: ${T_OBJ}/__ts ${DESC_FILE}
+	@${PRINT} MAKING layout file
+	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
+
+layout: ${T_OBJ}/__ts
 	@${PRINT} MAKING layout file
 	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
 
