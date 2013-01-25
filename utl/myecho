@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 level=$1
 shift

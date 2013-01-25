@@ -29,11 +29,11 @@ LAYOUT_FILE := ${T_OBJ}/layout.mk
 
 ${LAYOUT_FILE}: ${T_OBJ}/__ts ${DESC_FILE}
 	@${PRINT} MAKING layout file
-	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
+	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.bash $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
 
 layout: ${T_OBJ}/__ts
 	@${PRINT} MAKING layout file
-	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.sh $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
+	${V}cat ${DESC_FILES} | ${T_BASE}/utl/mklayout.bash $$\{T_OBJ\}/__ts_ $$\{T_OBJ\}/__ts_dep_ > ${LAYOUT_FILE}
 
 -include ${LAYOUT_FILE}
 
